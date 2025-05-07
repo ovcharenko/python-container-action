@@ -9,5 +9,7 @@ outputs:
   myOutput:
     description: "Output from the action"
 runs:
-  using: "docker"
-  image: "Dockerfile"
+  using: 'docker'
+  image: 'Dockerfile'
+  entrypoint: '/app/main.py'
+  post-entrypoint: '/app/cleanup.sh'
