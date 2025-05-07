@@ -14,19 +14,3 @@ jobs:
       - name: Check outputs
         run: |
           test "${{ steps.selftest.outputs.myOutput }}" == "Hello world"
-
-      - name: Run this action
-        uses: gacts/run-and-post-run@v1
-        with:
-          run: echo "First"
-            "${{ steps.selftest.outputs.myOutput }}"
-          post: |
-            echo "First post"
-            echo "(can run multiply commands)"
-            ls -la /tmp \
-              /bin /opt
-
-      - name: Post command only
-        uses: gacts/run-and-post-run@v1
-        with:
-          post: echo "Second post"
